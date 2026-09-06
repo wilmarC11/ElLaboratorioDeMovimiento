@@ -25,3 +25,8 @@
 # OS
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
+=======
+
+#v2
+>>>>>>> be2b070 (Añadido .gitignore para Unity)
