@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     
+ //p1   
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
+    //p3
     void Update()
     {
         DetectarSuelo();
@@ -52,12 +54,14 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(movimiento * velocidadMovimiento, rb.linearVelocity.y);
     }
     
+    //p4
     private void Saltar()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, fuerzaSalto);
         Debug.Log("¡Salto!");
     }
     
+    //p2
     private void DetectarSuelo()
     {
         isGrounded = Physics2D.OverlapCircle(checkSuelo.position, checkRadio, capaSuelo);
