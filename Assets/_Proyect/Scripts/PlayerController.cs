@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     
- //p1   
+    // p1
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    //p3
+    // p3
     void Update()
     {
         DetectarSuelo();
@@ -52,16 +52,22 @@ public class PlayerController : MonoBehaviour
     {
         float movimiento = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2(movimiento * velocidadMovimiento, rb.linearVelocity.y);
+        
+        // Voltear sprite según la dirección
+        if (movimiento > 0)
+            transform.localScale = new Vector3(1, 1, 1);   // Mira a la derecha
+        else if (movimiento < 0)
+            transform.localScale = new Vector3(-1, 1, 1);  // Mira a la izquierda
     }
     
-    //p4
+    // p4
     private void Saltar()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, fuerzaSalto);
         Debug.Log("¡Salto!");
     }
     
-    //p2
+    // p2
     private void DetectarSuelo()
     {
         isGrounded = Physics2D.OverlapCircle(checkSuelo.position, checkRadio, capaSuelo);
